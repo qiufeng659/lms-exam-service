@@ -1,0 +1,32 @@
+name: LMS CI/CD
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code_拉代码
+      uses: actions/checkout@v3
+
+    - name: Setup Python_配置
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies_安装依赖
+      run: pip install -r requirements.txt
+
+    - name: Run tests_运行测试
+      run: pytest
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Simulate deployment_模拟部署
+      run: echo "Deploy LMS Exam Service successfully"
