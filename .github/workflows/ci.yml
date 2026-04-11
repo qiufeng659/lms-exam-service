@@ -24,7 +24,7 @@ jobs:
     - name: Install dependencies_安装依赖
       run: pip install -r requirements.txt
 
-    - name: Run tests_运行测试.
+    - name: Run tests_运行测试1.
       run: pytest
 
   deploy:
