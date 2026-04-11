@@ -65,9 +65,10 @@ class TestLMSExamService(unittest.TestCase):
         submission_data = {
             "student_id": "student_001",
             "answers": {
-                "q1": "A",
-                "q2": "B",
-                "q3": "C"
+                "q1": "5",
+                "q2": "4",
+                "q3": "3",
+                "q3": "2"
             }
         }
 
@@ -121,9 +122,9 @@ class TestLMSExamService(unittest.TestCase):
         student_id = "student_003"
 
         self.client.post('/exam/math_101/submit',
-                         json={"student_id": student_id, "answers": {"q1": "A"}})
+                         json={"student_id": student_id, "answers": {"q1": "5"}})
         self.client.post('/exam/python_101/submit',
-                         json={"student_id": student_id, "answers": {"q1": "C"}})
+                         json={"student_id": student_id, "answers": {"q1": "3"}})
 
         # 获取学生提交记录
         response = self.client.get(f'/submissions/student/{student_id}')

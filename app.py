@@ -21,7 +21,7 @@ submissions = []
 
 @app.route("/")
 def home():
-    """首页 - 服务状态检查"""
+    "首页 - 服务状态检查"
     return {
         "service": "LMS Exam Service",
         "status": "running",
@@ -31,7 +31,7 @@ def home():
 
 @app.route("/health")
 def health():
-    """健康检查接口"""
+    "健康检查接口"
     return {
         "status": "healthy",
         "timestamp": "2026-03-28T10:00:00Z"
@@ -40,7 +40,7 @@ def health():
 
 @app.route("/exams", methods=["GET"])
 def list_exams():
-    """获取所有考试列表"""
+    "获取所有考试列表"
     return jsonify({
         "exams": exams,
         "count": len(exams)
@@ -49,7 +49,7 @@ def list_exams():
 
 @app.route("/exam/<exam_id>", methods=["GET"])
 def get_exam(exam_id):
-    """获取指定考试详情"""
+    "获取指定考试详情"
     if exam_id not in exams:
         return jsonify({"error": "Exam not found"}), 404
 

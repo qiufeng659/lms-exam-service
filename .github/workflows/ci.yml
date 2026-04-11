@@ -32,5 +32,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Simulate deployment_模拟部署
-      run: echo "Deploy LMS Exam Service successfully"
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: .
