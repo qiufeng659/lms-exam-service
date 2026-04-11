@@ -102,7 +102,7 @@ class TestLMSExamService(unittest.TestCase):
         # 先提交一个考试
         submission_data = {
             "student_id": "student_002",
-            "answers": {"q1": "A", "q2": "B"}
+            "answers": {"q1": "5", "q2": "3"}
         }
         self.client.post('/exam/math_101/submit', json=submission_data)
 
@@ -137,5 +137,5 @@ class TestLMSExamService(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    # 运行测试
+
     unittest.main(verbosity=2)
